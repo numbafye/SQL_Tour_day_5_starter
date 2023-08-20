@@ -20,13 +20,11 @@ module.exports = (sequelize, DataTypes) => {
       },
       event_id: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
+        allowNull: false,
       },
       band_id: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
+        allowNull: false,
       },
       meet_start_time: {
         type: DataTypes.DATE,
