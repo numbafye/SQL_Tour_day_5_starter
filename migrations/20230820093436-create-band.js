@@ -1,12 +1,12 @@
-'use strict'
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('bands', {
-        band_id: {
+    await queryInterface.createTable("bands", {
+      band_id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       name: {
         type: Sequelize.STRING,
@@ -23,10 +23,10 @@ module.exports = {
       end_time: {
         type: Sequelize.DATE,
         allowNull: false,
-      }
-    })
+      },
+    });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('bands')
-  }
-}
+    await queryInterface.dropTable("bands");
+  },
+};
