@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Set_time extends Model {
     /**
@@ -13,16 +11,40 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Set_time.init({
-    event_id: DataTypes.INTEGER,
-    stage_id: DataTypes.INTEGER,
-    band_id: DataTypes.INTEGER,
-    start_time: DataTypes.DATE,
-    end_time: DataTypes.DATE,
-    set_time_id: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Set_time',
-  });
+  Set_time.init(
+    {
+      set_time_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      event_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      stage_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      band_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      start_time: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+      end_time: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+    },
+    {
+      sequelize,
+      modelName: "Set_time",
+      tableName: "set_times",
+      timestamps: false,
+    }
+  );
   return Set_time;
 };
