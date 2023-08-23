@@ -6,7 +6,9 @@ const { Event } = db;
 // FIND ALL EVENTS
 events.get("/", async (req, res) => {
   try {
-    const foundEvents = await Event.findAll();
+    const foundEvents = await Event.findAll({
+      order: [["date", "ASC"]],
+    });
     res.status(200).json(foundEvents);
   } catch (error) {
     res.status(500).json(error);
