@@ -9,9 +9,8 @@ module.exports = {
       end_time: '23:00:00'
     }])
   },
-
+// DELETES ALL
   down: async (queryInterface, Sequelize) => {
-    // note that this deletes ALL data from the bands table
     await queryInterface.bulkDelete('bands', null, {})
   }
 }
